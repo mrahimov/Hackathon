@@ -1,8 +1,10 @@
 package com.example.murodjonrahimov.hackathon.network;
 
-import com.example.murodjonrahimov.hackathon.model.Jobs;
+import com.example.murodjonrahimov.hackathon.model.Job;
 
-import retrofit2.Retrofit;
+import java.util.List;
+
+import retrofit2.Call;
 import retrofit2.http.GET;
 
 /**
@@ -13,10 +15,10 @@ public interface Service{
 
 
 
-//Service call for Jobs JSON
+//Service call for Job JSON
 @GET("/resource/6fic-ympf.json")
-    Class<Jobs> getJobs();
 
+Call<List<Job>> getJobs();
 
 
 }
