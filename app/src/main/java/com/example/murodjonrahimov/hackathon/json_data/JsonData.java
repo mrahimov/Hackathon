@@ -1,4 +1,4 @@
-package json_data;
+package com.example.murodjonrahimov.hackathon.json_data;
 
 /**
  * Created by murodjon.rahimov on 3/3/18.
