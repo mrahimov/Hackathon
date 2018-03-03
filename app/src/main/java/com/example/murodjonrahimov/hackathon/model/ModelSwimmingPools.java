@@ -1,4 +1,4 @@
-package model;
+package com.example.murodjonrahimov.hackathon.model;
 
 /**
  * Created by murodjon.rahimov on 3/3/18.
