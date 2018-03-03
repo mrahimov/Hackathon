@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import retrofit2.Retrofit;
+import retrofit2.http.HEAD;
+
 public class MainActivity extends AppCompatActivity {
 
   @Override
@@ -13,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+<<<<<<<HEAD
     Button recreationButton = findViewById(R.id.recreation_button);
     Button programsButton = findViewById(R.id.programs_button);
 
@@ -35,5 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
       }
     });
+=======
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://data.cityofnewyork.us/")
+            .build();
+
+>>>>>>> 2654348aba186f7cf3814e6aceed4c398f9bf6d9
   }
 }
