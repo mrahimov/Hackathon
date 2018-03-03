@@ -8,6 +8,7 @@ public class Jobs {
 
     private String address, agency, bin, boroughCommunity,contactNumber,latitute, longitude, nta, program, programType, siteName, gradeLevelAgeGroup;
 
+
     public String getAddress() {
         return address;
     }
