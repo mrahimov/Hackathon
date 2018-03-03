@@ -17,7 +17,7 @@
         android:id="@+id/programs_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OUT-of-schools progras"/>
+        android:text="OUT-of-schools programs"/>
 
 
 </LinearLayout>
