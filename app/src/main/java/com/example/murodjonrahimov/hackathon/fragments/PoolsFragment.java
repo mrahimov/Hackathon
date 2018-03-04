@@ -1,109 +1,119 @@
 package com.example.murodjonrahimov.hackathon.fragments;
 
-import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.model.IndoorPools;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+public class PoolsFragment extends Fragment {
+
+    private static final String TAG = "response";
+=======
+import com.example.murodjonrahimov.hackathon.container.PoolsAdapter;
+import com.example.murodjonrahimov.hackathon.model.ModelPools;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 /**
  * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link PoolsFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link PoolsFragment#newInstance} factory method to
- * create an instance of this fragment.
  */
 public class PoolsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+  View rootView;
+  List<ModelPools> poolsList;
 
-    private OnFragmentInteractionListener mListener;
+  public PoolsFragment() {
+    // Required empty public constructor
+  }
 
-    public PoolsFragment() {
-        // Required empty public constructor
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    // Inflate the layout for this fragment
+    rootView = inflater.inflate(R.layout.fragment_pools, container, false);
+
+    RecyclerView poolsRecyclerView = rootView.findViewById(R.id.recyclerview_pool);
+    poolsList = new ArrayList<>();
+
+    try {
+      getPoolsJSON();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PoolsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PoolsFragment newInstance(String param1, String param2) {
-        PoolsFragment fragment = new PoolsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    PoolsAdapter adapter = new PoolsAdapter(poolsList);
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+    poolsRecyclerView.setAdapter(adapter);
+    poolsRecyclerView.setLayoutManager(linearLayoutManager);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pools, container, false);
-    }
+    return rootView;
+  }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+  public void getPoolsJSON() throws IOException {
+    InputStream inputStream = getContext().getAssets()
+      .open("pools_courts.json");
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+    int size;
+    try {
+      size = inputStream.read();
+      while (size != -1) {
+        byteArrayOutputStream.write(size);
+        size = inputStream.read();
+      }
+      inputStream.close();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+    try {
+      JSONArray jsonArray = new JSONArray(byteArrayOutputStream.toString());
+      String name;
+      String location;
+      String lat;
+      String lon;
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+      for (int i = 0; i < jsonArray.length(); i++) {
+        name = jsonArray.getJSONObject(i)
+          .getString("Name");
+        location = jsonArray.getJSONObject(i)
+          .getString("Location");
+        lat = jsonArray.getJSONObject(i)
+          .getString("lat");
+        lon = jsonArray.getJSONObject(i)
+          .getString("lon");
+
+        ModelPools modelPools = new ModelPools();
+        modelPools.setName(name);
+        modelPools.setLocation(location);
+        modelPools.setLat(lat);
+        modelPools.setLon(lon);
+        modelPools.setImage(R.drawable.pool);
+
+
+        poolsList.add(modelPools);
+      }
+    } catch (JSONException e) {
+      e.printStackTrace();
     }
+  }
 }
