@@ -17,10 +17,6 @@ public interface Service {
     @GET("/resource/6fic-ympf.json")
     Call<List<Jobs>> getJobs();
 
-
     @GET("/resource/n4ac-3636.json")
     Call<List<Volunteer>> getVolunteerJobs();
-
-
-}
 }
