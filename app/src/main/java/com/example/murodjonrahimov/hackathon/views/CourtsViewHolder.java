@@ -2,15 +2,13 @@ package com.example.murodjonrahimov.hackathon.views;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.model.TennisCourt;
 
-/**
- * Created by c4q on 3/3/18.
- */
 
 public class CourtsViewHolder extends RecyclerView.ViewHolder {
     private TextView agencyView, locationView, courtsView;
@@ -45,7 +43,6 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
                 } else{
                     newStatus = true;
                 }
-
                 courts.setFavorite(newStatus);
                 setImage(newStatus);
             }
@@ -63,4 +60,4 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    }
+}
