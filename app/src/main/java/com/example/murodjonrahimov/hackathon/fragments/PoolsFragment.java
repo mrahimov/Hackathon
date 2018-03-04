@@ -1,13 +1,29 @@
 package com.example.murodjonrahimov.hackathon.fragments;
 
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.model.IndoorPools;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+public class PoolsFragment extends Fragment {
+
+    private static final String TAG = "response";
+=======
 import com.example.murodjonrahimov.hackathon.container.PoolsAdapter;
 import com.example.murodjonrahimov.hackathon.model.ModelPools;
 import java.io.ByteArrayOutputStream;
@@ -92,6 +108,7 @@ public class PoolsFragment extends Fragment {
         modelPools.setLat(lat);
         modelPools.setLon(lon);
         modelPools.setImage(R.drawable.pool);
+
 
         poolsList.add(modelPools);
       }
