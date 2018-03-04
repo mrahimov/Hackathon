@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.murodjonrahimov.hackathon.R;
-import com.example.murodjonrahimov.hackathon.model.Parks;
+import com.example.murodjonrahimov.hackathon.model.Park;
 import com.example.murodjonrahimov.hackathon.view.ParksViewHolder;
 
 import java.util.List;
@@ -15,9 +15,9 @@ import java.util.List;
 
 public class ParksAdapter extends RecyclerView.Adapter<ParksViewHolder> {
 
-    private List<Parks> listOfParks;
+    private List<Park> listOfParks;
 
-    public ParksAdapter(List<Parks> listOfParks) {
+    public ParksAdapter(List<Park> listOfParks) {
         this.listOfParks = listOfParks;
     }
 
@@ -30,7 +30,7 @@ public class ParksAdapter extends RecyclerView.Adapter<ParksViewHolder> {
     @Override
     public void onBindViewHolder(ParksViewHolder holder, int position) {
 
-        Parks parks = listOfParks.get(position);
+        Park parks = listOfParks.get(position);
         holder.onBind(parks);
     }
 
