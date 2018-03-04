@@ -6,7 +6,7 @@ package com.example.murodjonrahimov.hackathon.model;
 
 public class Jobs {
 
-    private String address, agency, bin, boroughCommunity,contactNumber,latitute, longitude, nta, program, programType, siteName, gradeLevelAgeGroup;
+    private String address, agency, bin, boroughCommunity,contactNumber,latitute, longitude, nta, program, programType, siteName, gradeLevelAgeGroup, selected;
 
     public String getAddress() {
         return address;
@@ -26,6 +26,14 @@ public class Jobs {
 
     public String getBin() {
         return bin;
+    }
+
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
     }
 
     public void setBin(String bin) {
