@@ -26,12 +26,9 @@ import java.util.List;
  */
 public class CourtsFragment extends Fragment {
 
-<<<<<<< HEAD
-    View rootView;
 
-=======
+
     List<BasketBallCourt> basketBallCourts = new ArrayList<>();
->>>>>>> master
 
     public CourtsFragment() {
         // Required empty public constructor
@@ -41,12 +38,8 @@ public class CourtsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-<<<<<<< HEAD
-        rootView = inflater.inflate(R.layout.fragment_courts, container, false);
 
 
-        return rootView;
-=======
         // Inflate the layout for this fragment
         try {
             getBasketBallJSON();
@@ -54,7 +47,6 @@ public class CourtsFragment extends Fragment {
             e.printStackTrace();
         }
         return inflater.inflate(R.layout.fragment_courts, container, false);
->>>>>>> master
     }
 
     public void getBasketBallJSON() throws IOException {
