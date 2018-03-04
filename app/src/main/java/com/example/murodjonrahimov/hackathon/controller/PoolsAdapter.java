@@ -1,4 +1,4 @@
-package com.example.murodjonrahimov.hackathon.container;
+package com.example.murodjonrahimov.hackathon.controller;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -66,7 +66,8 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
     poolsName.setText("name: " + modelPools.getName());
     poolsAddress.setText("address: " + modelPools.getLocation());
     poolsPhone.setText("phone: " + modelPools.getPhone());
-    poolsImage.setImageResource(R.drawable.pool);
+    poolsImage.setImageResource(modelPools.getImage());
+    poolsImage.setImageResource(modelPools.getImage());
 
     setImage(modelPools.isFavorite());
 

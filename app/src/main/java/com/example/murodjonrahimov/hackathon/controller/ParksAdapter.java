@@ -5,11 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.views.ParksViewHolder;
 import com.example.murodjonrahimov.hackathon.model.Park;
-import com.example.murodjonrahimov.hackathon.view.ParksViewHolder;
-
 import java.util.List;
 
 

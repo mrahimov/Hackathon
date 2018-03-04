@@ -16,4 +16,6 @@ public interface Service {
 
     @GET("/resource/n4ac-3636.json")
     Call<List<Volunteer>> getVolunteerJobs();
+
 }
+

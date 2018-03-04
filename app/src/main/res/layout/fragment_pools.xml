@@ -13,20 +13,19 @@
       android:orientation="horizontal">
 
         <Button
-          android:id="@+id/button_outdoor"
-          android:layout_width="0dp"
+          android:id="@+id/button_indoor"
+          android:layout_width="140dp"
           android:layout_height="match_parent"
-          android:layout_weight="1"
-
-          android:text="outdoor pools"/>
+          android:layout_alignParentRight="true"
+          android:gravity="center"
+          android:text="indoor pools"/>
 
         <Button
-
-          android:id="@+id/button_indoor"
-          android:layout_width="0dp"
+          android:id="@+id/button_outdoor"
+          android:layout_width="140dp"
           android:layout_height="match_parent"
-          android:layout_weight="1"
-          android:text="indoor pools"/>
+          android:layout_alignParentRight="true"
+          android:text="outdoor pools"/>
 
     </LinearLayout>
 
@@ -34,7 +33,7 @@
       android:id="@+id/recyclerview_pool"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
-      
+
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
