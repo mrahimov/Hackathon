@@ -12,6 +12,15 @@ public class BasketBallCourt {
     private String Accessible;
     private String lat;
     private String lon;
+    private boolean isFavorite;
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 
     public String getProp_ID() {
         return Prop_ID;

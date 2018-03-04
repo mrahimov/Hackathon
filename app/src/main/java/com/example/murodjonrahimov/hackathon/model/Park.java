@@ -2,7 +2,7 @@ package com.example.murodjonrahimov.hackathon.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Parks {
+public class Park {
 
     @SerializedName("Name")
     private String name;
@@ -13,14 +13,25 @@ public class Parks {
     @SerializedName("Zip")
     private String zip;
 
-    public Parks(String name, String location, String zip) {
+    private boolean isFavorite;
+
+    public Park(String name, String location, String zip, boolean isFavorite) {
         this.name = name;
         this.location = location;
         this.zip = zip;
+        this.isFavorite = isFavorite;
     }
 
     public String getName() {
         return name;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 
     public void setName(String name) {

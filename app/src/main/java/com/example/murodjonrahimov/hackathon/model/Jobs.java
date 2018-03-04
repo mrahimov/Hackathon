@@ -3,6 +3,32 @@ package com.example.murodjonrahimov.hackathon.model;
 public class Jobs {
 
     private String address, agency, bin, boroughCommunity,contactNumber,latitute, longitude, nta, program, programType, siteName, gradeLevelAgeGroup, selected;
+    private boolean isFavorite;
+
+    public Jobs(String address, String agency, String bin, String boroughCommunity, String contactNumber, String latitute, String longitude, String nta, String program, String programType, String siteName, String gradeLevelAgeGroup, String selected, boolean isFavorite) {
+        this.address = address;
+        this.agency = agency;
+        this.bin = bin;
+        this.boroughCommunity = boroughCommunity;
+        this.contactNumber = contactNumber;
+        this.latitute = latitute;
+        this.longitude = longitude;
+        this.nta = nta;
+        this.program = program;
+        this.programType = programType;
+        this.siteName = siteName;
+        this.gradeLevelAgeGroup = gradeLevelAgeGroup;
+        this.selected = selected;
+        this.isFavorite = isFavorite;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 
     public String getAddress() {
         return address;
