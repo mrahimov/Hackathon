@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.model.Parks;
-import com.example.murodjonrahimov.hackathon.view.ParksViewHolder;
+import com.example.murodjonrahimov.hackathon.views.ParksViewHolder;
 
 import java.util.List;
 

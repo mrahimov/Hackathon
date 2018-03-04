@@ -13,17 +13,17 @@
       android:orientation="vertical">
 
         <Button
-          android:id="@+id/button_indoor"
+          android:id="@+id/button_outdoor"
           android:layout_width="140dp"
           android:layout_height="match_parent"
           android:layout_alignParentRight="true"
           android:layout_gravity="end"
-          android:text="indoor pools"/>
+          android:text="outdoor pools"/>
 
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-      android:id="@+id/recyclerview_pool"
+      android:id="@+id/recyclerview_pool_indor"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
 

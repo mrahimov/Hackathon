@@ -1,4 +1,4 @@
-package com.example.murodjonrahimov.hackathon.view;
+package com.example.murodjonrahimov.hackathon.views;
 
 
 import android.support.v7.widget.RecyclerView;
