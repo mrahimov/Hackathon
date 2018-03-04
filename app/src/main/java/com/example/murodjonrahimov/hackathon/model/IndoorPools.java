@@ -22,10 +22,14 @@ public class IndoorPools {
     @SerializedName("Size")
     private String size;
 
+    private int imageView;
     private String lat;
     private String lon;
 
-    public IndoorPools(String name, String location, String phone, String poolsOutdoorType, String setting, String size, String lat, String lon) {
+    public IndoorPools() {
+    }
+
+    public IndoorPools(String name, String location, String phone, String poolsOutdoorType, String setting, String size, String lat, String lon, int imageView) {
         this.name = name;
         this.location = location;
         this.phone = phone;
@@ -34,6 +38,7 @@ public class IndoorPools {
         this.size = size;
         this.lat = lat;
         this.lon = lon;
+        this.imageView = imageView;
     }
 
     public String getName() {
@@ -98,5 +103,13 @@ public class IndoorPools {
 
     public void setLon(String lon) {
         this.lon = lon;
+    }
+
+    public int getImageView() {
+        return imageView;
+    }
+
+    public void setImageView(int imageView) {
+        this.imageView = imageView;
     }
 }

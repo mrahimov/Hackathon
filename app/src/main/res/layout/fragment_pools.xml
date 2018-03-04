@@ -1,16 +1,40 @@
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:orientation="vertical"
   tools:context="com.example.murodjonrahimov.hackathon.fragments.PoolsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/cardview_dark_background"
+      android:orientation="horizontal">
+
+        <Button
+          android:id="@+id/button_outdoor"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+
+          android:text="outdoor pools"/>
+
+        <Button
+
+          android:id="@+id/button_indoor"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="indoor pools"/>
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
       android:id="@+id/recyclerview_pool"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
-
+      
     </android.support.v7.widget.RecyclerView>
 
-</FrameLayout>
+</LinearLayout>

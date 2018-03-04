@@ -74,6 +74,7 @@ public class PoolsFragment extends Fragment {
         String location;
         String lat;
         String lon;
+        String phone;
 
         for (int i = 0; i < jsonArray.length(); i++) {
           name = jsonArray.getJSONObject(i)
@@ -84,6 +85,8 @@ public class PoolsFragment extends Fragment {
                   .getString("lat");
           lon = jsonArray.getJSONObject(i)
                   .getString("lon");
+          phone = jsonArray.getJSONObject(i)
+            .getString("Phone");
 
           ModelPools modelPools = new ModelPools();
           modelPools.setName(name);
@@ -91,6 +94,7 @@ public class PoolsFragment extends Fragment {
           modelPools.setLat(lat);
           modelPools.setLon(lon);
           modelPools.setImage(R.drawable.pool);
+          modelPools.setPhone(phone);
 
 
           poolsList.add(modelPools);
