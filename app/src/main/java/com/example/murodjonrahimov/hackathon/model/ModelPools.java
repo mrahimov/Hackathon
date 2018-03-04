@@ -1,25 +1,32 @@
 package com.example.murodjonrahimov.hackathon.model;
 
-public class ModelSwimmingPools {
+/**
+ * Created by murodjon.rahimov on 3/3/18.
+ */
+
+public class ModelPools {
   private String Name;
   private String Location;
   private String Phone;
   private String Pools_outdoor_Type;
   private String Setting;
-  private String Size;
   private String lat;
   private String lon;
+  private int image;
 
-  public ModelSwimmingPools(String name, String location, String phone, String pools_outdoor_Type, String setting, String size,
-                            String lat, String lon) {
-    Name = name;
-    Location = location;
-    Phone = phone;
-    Pools_outdoor_Type = pools_outdoor_Type;
-    Setting = setting;
-    Size = size;
+  public ModelPools() {
+  }
+
+  public ModelPools(String name, String location, String phone, String pools_outdoor_Type, String setting, String lat,
+                    String lon, int image) {
+    this.Name = name;
+    this.Location = location;
+    this.Phone = phone;
+    this.Pools_outdoor_Type = pools_outdoor_Type;
+    this.Setting = setting;
     this.lat = lat;
     this.lon = lon;
+    this.image = image;
   }
 
   public String getName() {
@@ -62,14 +69,6 @@ public class ModelSwimmingPools {
     Setting = setting;
   }
 
-  public String getSize() {
-    return Size;
-  }
-
-  public void setSize(String size) {
-    Size = size;
-  }
-
   public String getLat() {
     return lat;
   }
@@ -84,5 +83,13 @@ public class ModelSwimmingPools {
 
   public void setLon(String lon) {
     this.lon = lon;
+  }
+
+  public int getImage() {
+    return image;
+  }
+
+  public void setImage(int image) {
+    this.image = image;
   }
 }

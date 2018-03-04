@@ -1,9 +1,7 @@
 package com.example.murodjonrahimov.hackathon.network;
 
 import com.example.murodjonrahimov.hackathon.model.Jobs;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -13,9 +11,6 @@ import retrofit2.http.GET;
 
 public interface Service {
 
-
     @GET("/resource/6fic-ympf.json")
     Call<List<Jobs>> getJobs();
-
-
 }
