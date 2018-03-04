@@ -62,6 +62,6 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
     poolsName.setText("name: " + modelPools.getName());
     poolsAddress.setText("address: " + modelPools.getLocation());
     poolsPhone.setText("phone: " + modelPools.getPhone());
-    poolsImage.setImageResource(modelPools.getImage());
+    poolsImage.setImageResource(R.drawable.pool);
   }
 }
