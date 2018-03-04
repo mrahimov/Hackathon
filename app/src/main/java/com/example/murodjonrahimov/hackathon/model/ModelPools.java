@@ -12,16 +12,21 @@ public class ModelPools {
   private String Setting;
   private String lat;
   private String lon;
+  private int image;
+
+  public ModelPools() {
+  }
 
   public ModelPools(String name, String location, String phone, String pools_outdoor_Type, String setting, String lat,
-                    String lon) {
-    Name = name;
-    Location = location;
-    Phone = phone;
-    Pools_outdoor_Type = pools_outdoor_Type;
-    Setting = setting;
+                    String lon, int image) {
+    this.Name = name;
+    this.Location = location;
+    this.Phone = phone;
+    this.Pools_outdoor_Type = pools_outdoor_Type;
+    this.Setting = setting;
     this.lat = lat;
     this.lon = lon;
+    this.image = image;
   }
 
   public String getName() {
@@ -78,5 +83,13 @@ public class ModelPools {
 
   public void setLon(String lon) {
     this.lon = lon;
+  }
+
+  public int getImage() {
+    return image;
+  }
+
+  public void setImage(int image) {
+    this.image = image;
   }
 }
