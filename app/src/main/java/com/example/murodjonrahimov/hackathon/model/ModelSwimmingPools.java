@@ -1,9 +1,5 @@
 package com.example.murodjonrahimov.hackathon.model;
 
-/**
- * Created by murodjon.rahimov on 3/3/18.
- */
-
 public class ModelSwimmingPools {
   private String Name;
   private String Location;

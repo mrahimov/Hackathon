@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.murodjonrahimov.hackathon.fragments.CourtsFragment;
 import com.example.murodjonrahimov.hackathon.fragments.JobsAndInternshipFragment;
 import com.example.murodjonrahimov.hackathon.fragments.ParksFragment;
 import com.example.murodjonrahimov.hackathon.fragments.PoolsFragment;
@@ -15,8 +16,8 @@ import com.example.murodjonrahimov.hackathon.fragments.VolunteeringOpportunities
 
 public class RecreationalActivitiesTabsPagerAdapter extends FragmentPagerAdapter {
 
-    private int NUMBER_OF_ITEMS = 2;
-    private String[] titles = new String[]{"Parks", "Pools"};
+    private int NUMBER_OF_ITEMS = 3;
+    private String[] titles = new String[]{"Parks", "Pools", "Courts"};
 
     public RecreationalActivitiesTabsPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -29,6 +30,8 @@ public class RecreationalActivitiesTabsPagerAdapter extends FragmentPagerAdapter
                 return new ParksFragment();
             case 1:
                 return new PoolsFragment();
+            case 2:
+                return new CourtsFragment();
             default:
                 return null;
         }
