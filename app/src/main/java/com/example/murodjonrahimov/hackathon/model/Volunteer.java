@@ -9,6 +9,38 @@ public class Volunteer {
     private String addressesCount, contentId, createdDate, displayUrl, endDateDate, eventTime, hits, hours, lastModifiedDate, opportunityId, orgContentId, orgTitle, recurrenceType, region,
             startDateDate, status, summary, title, volRequests;
 
+    private boolean isFavorite;
+
+    public Volunteer(String addressesCount, String contentId, String createdDate, String displayUrl, String endDateDate, String eventTime, String hits, String hours, String lastModifiedDate, String opportunityId, String orgContentId, String orgTitle, String recurrenceType, String region, String startDateDate, String status, String summary, String title, String volRequests, boolean isFavorite) {
+        this.addressesCount = addressesCount;
+        this.contentId = contentId;
+        this.createdDate = createdDate;
+        this.displayUrl = displayUrl;
+        this.endDateDate = endDateDate;
+        this.eventTime = eventTime;
+        this.hits = hits;
+        this.hours = hours;
+        this.lastModifiedDate = lastModifiedDate;
+        this.opportunityId = opportunityId;
+        this.orgContentId = orgContentId;
+        this.orgTitle = orgTitle;
+        this.recurrenceType = recurrenceType;
+        this.region = region;
+        this.startDateDate = startDateDate;
+        this.status = status;
+        this.summary = summary;
+        this.title = title;
+        this.volRequests = volRequests;
+        this.isFavorite = isFavorite;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 
     public String getAddressesCount() {
         return addressesCount;

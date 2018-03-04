@@ -1,23 +1,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.murodjonrahimov.hackathon.fragments.HomeFragment">
-
-
-    <Button
-        android:id="@+id/recreational_activities_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recreational Activities"/>
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:padding="16dp"
+  tools:context="com.example.murodjonrahimov.hackathon.fragments.HomeFragment">
 
     <Button
-        android:id="@+id/programs_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OUT-of-schools programs"/>
+      android:id="@+id/recreational_activities_button"
+      android:layout_width="220dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="120dp"
+      android:background="@color/colorPrimary"
+      android:text="Recreational Activities"/>
+
+    <Button
+      android:id="@+id/programs_button"
+      android:layout_width="220dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="20dp"
+      android:background="@color/colorAccent"
+      android:text="OUT-of-schools programs"/>
 
 
 </LinearLayout>

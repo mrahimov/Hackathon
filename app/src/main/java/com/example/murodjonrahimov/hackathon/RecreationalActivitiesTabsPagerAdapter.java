@@ -15,7 +15,7 @@ import com.example.murodjonrahimov.hackathon.fragments.PoolsFragment;
 public class RecreationalActivitiesTabsPagerAdapter extends FragmentPagerAdapter {
 
     private int NUMBER_OF_ITEMS = 3;
-    private String[] titles = new String[]{"Parks", "Pools", "Courts"};
+    private String[] titles = new String[]{"Park", "Pools", "Courts"};
 
     public RecreationalActivitiesTabsPagerAdapter(FragmentManager fm) {
         super(fm);
