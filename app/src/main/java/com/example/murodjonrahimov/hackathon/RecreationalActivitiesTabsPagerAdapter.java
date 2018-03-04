@@ -5,10 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.murodjonrahimov.hackathon.fragments.CourtsFragment;
-import com.example.murodjonrahimov.hackathon.fragments.JobsAndInternshipFragment;
 import com.example.murodjonrahimov.hackathon.fragments.ParksFragment;
 import com.example.murodjonrahimov.hackathon.fragments.PoolsFragment;
-import com.example.murodjonrahimov.hackathon.fragments.VolunteeringOpportunitiesFragment;
 
 /**
  * Created by olgakoleda on 3/3/18.

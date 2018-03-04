@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.model.IndoorPools;
 import com.google.gson.Gson;
@@ -22,109 +23,97 @@ import java.util.ArrayList;
 public class PoolsFragment extends Fragment {
 
     private static final String TAG = "response";
+=======
+import com.example.murodjonrahimov.hackathon.container.PoolsAdapter;
+import com.example.murodjonrahimov.hackathon.model.ModelPools;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 
-    private OnFragmentInteractionListener mListener;
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class PoolsFragment extends Fragment {
 
-    public PoolsFragment() {
+  View rootView;
+  List<ModelPools> poolsList;
+
+  public PoolsFragment() {
+    // Required empty public constructor
+  }
+
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    // Inflate the layout for this fragment
+    rootView = inflater.inflate(R.layout.fragment_pools, container, false);
+
+    RecyclerView poolsRecyclerView = rootView.findViewById(R.id.recyclerview_pool);
+    poolsList = new ArrayList<>();
+
+    try {
+      getPoolsJSON();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
 
+    PoolsAdapter adapter = new PoolsAdapter(poolsList);
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+    poolsRecyclerView.setAdapter(adapter);
+    poolsRecyclerView.setLayoutManager(linearLayoutManager);
 
+    return rootView;
+  }
+
+  public void getPoolsJSON() throws IOException {
+    InputStream inputStream = getContext().getAssets()
+      .open("pools_courts.json");
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+    int size;
+    try {
+      size = inputStream.read();
+      while (size != -1) {
+        byteArrayOutputStream.write(size);
+        size = inputStream.read();
+      }
+      inputStream.close();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+    try {
+      JSONArray jsonArray = new JSONArray(byteArrayOutputStream.toString());
+      String name;
+      String location;
+      String lat;
+      String lon;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pools, container, false);
+      for (int i = 0; i < jsonArray.length(); i++) {
+        name = jsonArray.getJSONObject(i)
+          .getString("Name");
+        location = jsonArray.getJSONObject(i)
+          .getString("Location");
+        lat = jsonArray.getJSONObject(i)
+          .getString("lat");
+        lon = jsonArray.getJSONObject(i)
+          .getString("lon");
+
+        ModelPools modelPools = new ModelPools();
+        modelPools.setName(name);
+        modelPools.setLocation(location);
+        modelPools.setLat(lat);
+        modelPools.setLon(lon);
+        modelPools.setImage(R.drawable.pool);
+
+
+        poolsList.add(modelPools);
+      }
+    } catch (JSONException e) {
+      e.printStackTrace();
     }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        AsyncTaskRunner asyncTaskRunner = new AsyncTaskRunner();
-        asyncTaskRunner.execute();
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public String loadJSONFromAsset() {
-        String json;
-
-        try{
-            InputStream is = getContext().getAssets().open("indoor_pools.json");
-
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        }
-        catch (IOException ex){
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
-
-    private class AsyncTaskRunner extends AsyncTask<String, String, ArrayList<IndoorPools>> {
-
-
-        @Override
-        protected ArrayList<IndoorPools> doInBackground(String... params) {
-
-            String json = loadJSONFromAsset();
-            Gson gson = new Gson();
-            ArrayList<IndoorPools> listOfPools = gson.fromJson(json, new TypeToken<ArrayList<IndoorPools>>() {}.getType());
-            return listOfPools;
-        }
-
-        @Override
-        protected void onPostExecute(ArrayList<IndoorPools> listOfPools ) {
-
-            IndoorPools pool = listOfPools.get(2);
-            Log.d(TAG, pool.getName());
-        }
-
-    }
+  }
 }
