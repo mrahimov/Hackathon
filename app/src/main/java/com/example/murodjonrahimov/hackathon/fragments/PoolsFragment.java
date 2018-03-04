@@ -9,16 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import com.example.murodjonrahimov.hackathon.R;
-
-import com.example.murodjonrahimov.hackathon.model.ModelIndoorPools;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
 import com.example.murodjonrahimov.hackathon.controller.PoolsAdapter;
 import com.example.murodjonrahimov.hackathon.model.ModelPools;
 import java.io.ByteArrayOutputStream;
-
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +24,7 @@ public class PoolsFragment extends Fragment {
   View rootView;
   private List<ModelPools> poolsList;
   private Button indoorButoon;
+  private Button outdoorButton;
   private PoolsAdapter adapter;
   private LinearLayoutManager linearLayoutManager;
 
@@ -41,7 +38,9 @@ public class PoolsFragment extends Fragment {
     final RecyclerView poolsRecyclerView = rootView.findViewById(R.id.recyclerview_pool);
     poolsList = new ArrayList<>();
 
+    outdoorButton = rootView.findViewById(R.id.button_outdoor);
     indoorButoon = rootView.findViewById(R.id.button_indoor);
+
     indoorButoon.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -57,6 +56,21 @@ public class PoolsFragment extends Fragment {
         adapter.notifyDataSetChanged();
       }
     });
+    outdoorButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          try {
+            getPoolsJSON();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+
+          adapter = new PoolsAdapter(poolsList);
+
+          poolsRecyclerView.setAdapter(adapter);
+          adapter.notifyDataSetChanged();
+        }
+      });
     try {
       getPoolsJSON();
     } catch (IOException e) {
@@ -73,6 +87,7 @@ public class PoolsFragment extends Fragment {
   }
 
   public void getPoolsJSON() throws IOException {
+    poolsList.clear();
     InputStream inputStream = getContext().getAssets()
       .open("pools_courts.json");
     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -166,7 +181,7 @@ public class PoolsFragment extends Fragment {
         modelPools.setLocation(location);
         modelPools.setLat(lat);
         modelPools.setLon(lon);
-        modelPools.setImage(R.drawable.pool);
+        modelPools.setImage(R.drawable.swimming_pool);
         modelPools.setPhone(phone);
 
         poolsList.add(modelPools);
