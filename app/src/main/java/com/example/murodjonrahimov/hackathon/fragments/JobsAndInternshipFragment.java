@@ -67,6 +67,8 @@ public class JobsAndInternshipFragment extends Fragment {
 
                 recyclerView.setAdapter(jobsAdapter);
                 recyclerView.setLayoutManager(linearLayoutManager);
+
+
             }
 
             @Override

@@ -9,17 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.controller.CourtsAdapter;
 import com.example.murodjonrahimov.hackathon.model.BasketBallCourt;
 import com.example.murodjonrahimov.hackathon.model.HandBallCourt;
 import com.example.murodjonrahimov.hackathon.model.TennisCourt;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,7 +31,6 @@ public class CourtsFragment extends Fragment {
     RecyclerView courtRV;
     CourtsAdapter courtsAdapter;
     LinearLayoutManager linearLayoutManager;
-
     List<BasketBallCourt> basketBallCourts = new ArrayList<>();
     List<HandBallCourt> handBallCourts = new ArrayList<>();
     List<TennisCourt> tennisBallCourts;
@@ -49,7 +44,6 @@ public class CourtsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_courts, container, false);
-
         courtRV = rootview.findViewById(R.id.courts_rv);
         tennisBallCourts = new ArrayList<>();
 
@@ -105,14 +99,11 @@ public class CourtsFragment extends Fragment {
                 Log.d("basketball name: ", bc.getName());
                 Log.d("basketball location: ", bc.getLocation());
                 Log.d("basketball courts: ", bc.getNum_of_Courts());
-
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-
     public void getHandBallJSON() throws IOException {
         InputStream inputStream = getContext().getAssets().open("handball_courts.json");
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

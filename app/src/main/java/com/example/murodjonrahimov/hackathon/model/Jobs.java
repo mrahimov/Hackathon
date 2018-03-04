@@ -1,12 +1,8 @@
 package com.example.murodjonrahimov.hackathon.model;
 
-/**
- * Created by c4q on 3/3/18.
- */
-
 public class Jobs {
 
-    private String address, agency, bin, boroughCommunity,contactNumber,latitute, longitude, nta, program, programType, siteName, gradeLevelAgeGroup;
+    private String address, agency, bin, boroughCommunity,contactNumber,latitute, longitude, nta, program, programType, siteName, gradeLevelAgeGroup, selected;
 
     public String getAddress() {
         return address;
@@ -26,6 +22,14 @@ public class Jobs {
 
     public String getBin() {
         return bin;
+    }
+
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
     }
 
     public void setBin(String bin) {
