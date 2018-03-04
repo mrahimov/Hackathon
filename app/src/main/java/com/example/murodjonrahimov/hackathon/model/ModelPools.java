@@ -13,12 +13,14 @@ public class ModelPools {
   private String lat;
   private String lon;
   private int image;
+  private boolean isFavorite;
+
 
   public ModelPools() {
   }
 
   public ModelPools(String name, String location, String phone, String pools_outdoor_Type, String setting, String lat,
-                    String lon, int image) {
+                    String lon, int image, boolean isFavorite) {
     this.Name = name;
     this.Location = location;
     this.Phone = phone;
@@ -27,6 +29,15 @@ public class ModelPools {
     this.lat = lat;
     this.lon = lon;
     this.image = image;
+    this.isFavorite = isFavorite;
+  }
+
+  public boolean isFavorite() {
+    return isFavorite;
+  }
+
+  public void setFavorite(boolean favorite) {
+    isFavorite = favorite;
   }
 
   public String getName() {

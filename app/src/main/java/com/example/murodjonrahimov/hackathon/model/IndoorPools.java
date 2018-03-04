@@ -25,11 +25,13 @@ public class IndoorPools {
     private int imageView;
     private String lat;
     private String lon;
+    private boolean isFavorite;
+
 
     public IndoorPools() {
     }
 
-    public IndoorPools(String name, String location, String phone, String poolsOutdoorType, String setting, String size, String lat, String lon, int imageView) {
+    public IndoorPools(boolean isFavorite, String name, String location, String phone, String poolsOutdoorType, String setting, String size, String lat, String lon, int imageView) {
         this.name = name;
         this.location = location;
         this.phone = phone;
@@ -39,6 +41,15 @@ public class IndoorPools {
         this.lat = lat;
         this.lon = lon;
         this.imageView = imageView;
+        this.isFavorite = isFavorite;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 
     public String getName() {
