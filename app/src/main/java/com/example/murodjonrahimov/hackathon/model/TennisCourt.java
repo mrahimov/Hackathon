@@ -11,6 +11,15 @@ public class TennisCourt {
     private String Courts;
     private String Indoor_Outdoor;
     private String Tennis_Type;
+    private boolean isFavorite;
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 
     public String getName() {
         return Name;

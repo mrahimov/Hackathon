@@ -6,14 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.controller.ParksAdapter;
-import com.example.murodjonrahimov.hackathon.model.Parks;
+import com.example.murodjonrahimov.hackathon.model.Park;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -65,22 +64,22 @@ public class ParksFragment extends Fragment {
         return json;
     }
 
-    private class AsyncTaskRunner extends AsyncTask<String, String, ArrayList<Parks>> {
+    private class AsyncTaskRunner extends AsyncTask<String, String, ArrayList<Park>> {
 
         @Override
-        protected ArrayList<Parks> doInBackground(String... params) {
+        protected ArrayList<Park> doInBackground(String... params) {
 
             String json = loadJSONFromAsset();
             Gson gson = new Gson();
-            ArrayList<Parks> listOfParks = gson.fromJson(json, new TypeToken<ArrayList<Parks>>() {
+            ArrayList<Park> listOfParks = gson.fromJson(json, new TypeToken<ArrayList<Park>>() {
             }.getType());
             return listOfParks;
         }
 
         @Override
-        protected void onPostExecute(ArrayList<Parks> listOfParks) {
+        protected void onPostExecute(ArrayList<Park> listOfParks) {
 
-//            Parks park = listOfParks.get(2);
+//            Park park = listOfParks.get(2);
 //            Log.d(PARK_RESPONSE, park.getName());
 
             ParksAdapter parksAdapter = new ParksAdapter(listOfParks);

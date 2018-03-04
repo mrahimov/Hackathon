@@ -8,6 +8,16 @@ public class HandBallCourt {
     private String Name;
     private String Location;
     private String Num_of_Courts;
+    private boolean isFavorite;
+
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 
     public String getName() {
         return Name;
