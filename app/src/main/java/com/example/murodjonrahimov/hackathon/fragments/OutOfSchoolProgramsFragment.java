@@ -2,12 +2,14 @@ package com.example.murodjonrahimov.hackathon.fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.murodjonrahimov.hackathon.OutOfSchoolTabsPagerAdapter;
 import com.example.murodjonrahimov.hackathon.R;
@@ -19,7 +21,6 @@ public class OutOfSchoolProgramsFragment extends Fragment {
 
     private ViewPager pager;
     private OutOfSchoolTabsPagerAdapter adapter;
-
 
     public OutOfSchoolProgramsFragment() {
         // Required empty public constructor
@@ -39,7 +40,6 @@ public class OutOfSchoolProgramsFragment extends Fragment {
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
         return rootView;
-
     }
 
 }

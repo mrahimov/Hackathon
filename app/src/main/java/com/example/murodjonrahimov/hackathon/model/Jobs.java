@@ -2,32 +2,46 @@ package com.example.murodjonrahimov.hackathon.model;
 
 public class Jobs {
 
-    private String address, agency, bin, boroughCommunity,contactNumber,latitute, longitude, nta, program, programType, siteName, gradeLevelAgeGroup, selected;
+    private String borough_community;
+    private String contact_number;
+    private String address;
+    private String agency;
+    private String program;
+    private String location_1_zip;
     private boolean isFavorite;
 
-    public Jobs(String address, String agency, String bin, String boroughCommunity, String contactNumber, String latitute, String longitude, String nta, String program, String programType, String siteName, String gradeLevelAgeGroup, String selected, boolean isFavorite) {
+    public Jobs(String location_1_zip, String borough_community, String contact_number, String address, String agency, String program, boolean isFavorite) {
+        this.borough_community = borough_community;
+        this.contact_number = contact_number;
         this.address = address;
         this.agency = agency;
-        this.bin = bin;
-        this.boroughCommunity = boroughCommunity;
-        this.contactNumber = contactNumber;
-        this.latitute = latitute;
-        this.longitude = longitude;
-        this.nta = nta;
         this.program = program;
-        this.programType = programType;
-        this.siteName = siteName;
-        this.gradeLevelAgeGroup = gradeLevelAgeGroup;
-        this.selected = selected;
         this.isFavorite = isFavorite;
+        this.location_1_zip = location_1_zip;
     }
 
-    public boolean isFavorite() {
-        return isFavorite;
+    public String getLocation_1_zip() {
+        return location_1_zip;
     }
 
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
+    public void setLocation_1_zip(String location_1_zip) {
+        this.location_1_zip = location_1_zip;
+    }
+
+    public String getBorough_community() {
+        return borough_community;
+    }
+
+    public void setBorough_community(String borough_community) {
+        this.borough_community = borough_community;
+    }
+
+    public String getContact_number() {
+        return contact_number;
+    }
+
+    public void setContact_number(String contact_number) {
+        this.contact_number = contact_number;
     }
 
     public String getAddress() {
@@ -46,62 +60,6 @@ public class Jobs {
         this.agency = agency;
     }
 
-    public String getBin() {
-        return bin;
-    }
-
-    public String getSelected() {
-        return selected;
-    }
-
-    public void setSelected(String selected) {
-        this.selected = selected;
-    }
-
-    public void setBin(String bin) {
-        this.bin = bin;
-    }
-
-    public String getBoroughCommunity() {
-        return boroughCommunity;
-    }
-
-    public void setBoroughCommunity(String boroughCommunity) {
-        this.boroughCommunity = boroughCommunity;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    public String getLatitute() {
-        return latitute;
-    }
-
-    public void setLatitute(String latitute) {
-        this.latitute = latitute;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getNta() {
-        return nta;
-    }
-
-    public void setNta(String nta) {
-        this.nta = nta;
-    }
-
     public String getProgram() {
         return program;
     }
@@ -110,27 +68,11 @@ public class Jobs {
         this.program = program;
     }
 
-    public String getProgramType() {
-        return programType;
+    public boolean isFavorite() {
+        return isFavorite;
     }
 
-    public void setProgramType(String programType) {
-        this.programType = programType;
-    }
-
-    public String getSiteName() {
-        return siteName;
-    }
-
-    public void setSiteName(String siteName) {
-        this.siteName = siteName;
-    }
-
-    public String getGradeLevelAgeGroup() {
-        return gradeLevelAgeGroup;
-    }
-
-    public void setGradeLevelAgeGroup(String gradeLevelAgeGroup) {
-        this.gradeLevelAgeGroup = gradeLevelAgeGroup;
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 }

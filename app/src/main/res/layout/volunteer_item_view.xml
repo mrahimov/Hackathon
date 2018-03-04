@@ -25,7 +25,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <ImageButton
+            <TextView
+                android:id="@+id/title_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/amount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/postalcode_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <ImageButton
             android:id="@+id/image_button"
             android:layout_width="19dp"
             android:layout_height="19dp"
