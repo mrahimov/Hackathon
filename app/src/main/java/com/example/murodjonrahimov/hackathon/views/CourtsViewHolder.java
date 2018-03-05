@@ -52,7 +52,7 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
                 String courtName = courts.getName().toString();
                 String courtLocation = courts.getLocation().toString();
                 boolean isFavourite = courts.isFavorite();
-
+                String zipcode = "10019";
 
                 if(courts.isFavorite()) {
                     newStatus = false;
@@ -62,7 +62,7 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
                 courts.setFavorite(newStatus);
                 setImage(newStatus);
 
-                MyFavourite myFavourite = new MyFavourite(courtName, courtLocation, isFavourite);
+                MyFavourite myFavourite = new MyFavourite(courtName, courtLocation, isFavourite, zipcode);
 
                 Intent intent = new Intent(agencyView.getContext(), MyIntentService.class);
                 intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);

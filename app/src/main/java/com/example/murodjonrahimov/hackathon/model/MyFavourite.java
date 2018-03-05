@@ -19,15 +19,25 @@ public class MyFavourite implements Parcelable{
     @ColumnInfo(name = "location")
     private String location;
 
-
     @ColumnInfo(name = "isFavorite")
     private boolean isFavorite;
 
+    @ColumnInfo(name = "zipcode")
+    private String zipcode;
 
-    public MyFavourite(String name, String location, boolean isFavorite) {
+    public MyFavourite(String name, String location, boolean isFavorite, String zipcode) {
         this.name = name;
         this.location = location;
         this.isFavorite = isFavorite;
+        this.zipcode = zipcode;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public boolean isFavorite() {

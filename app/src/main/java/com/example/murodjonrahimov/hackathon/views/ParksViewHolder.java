@@ -52,6 +52,7 @@ public class ParksViewHolder extends RecyclerView.ViewHolder {
                 String parkName = park.getName().toString();
                 String parkLocation = park.getLocation().toString();
                 boolean isFavourite = park.isFavorite();
+                String zipcode = park.getZip();
 
                 if(park.isFavorite()) {
                     newStatus = false;
@@ -62,7 +63,7 @@ public class ParksViewHolder extends RecyclerView.ViewHolder {
                 park.setFavorite(newStatus);
                 setImage(newStatus);
 
-                MyFavourite myFavourite = new MyFavourite(parkName, parkLocation, isFavourite);
+                MyFavourite myFavourite = new MyFavourite(parkName, parkLocation, isFavourite, zipcode);
 
                 Intent intent = new Intent(name.getContext(), MyIntentService.class);
                 intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);
