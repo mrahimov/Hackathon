@@ -2,12 +2,16 @@ package com.example.murodjonrahimov.hackathon.fragments;
 
 
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.murodjonrahimov.hackathon.R;
 
@@ -17,9 +21,13 @@ import com.example.murodjonrahimov.hackathon.R;
 public class HomeFragment extends Fragment {
 
 
-    private Button recreationalActivitiesButton;
+//    private Button recreationalActivitiesButton;
     private Button outOfSchoolPrograms;
     private FragmentListener fragmentListener;
+
+    private CardView recreationalCard, opportunitiesCard;
+    private ImageView basketballView, opportunitiesView;
+
 
     public HomeFragment() {
     }
@@ -42,17 +50,22 @@ public class HomeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recreationalActivitiesButton = rootView.findViewById(R.id.recreational_activities_button);
-        outOfSchoolPrograms = rootView.findViewById(R.id.programs_button);
+//        recreationalActivitiesButton = rootView.findViewById(R.id.recreational_activities_button);
+//        outOfSchoolPrograms = rootView.findViewById(R.id.programs_button);
 
-        recreationalActivitiesButton.setOnClickListener(new View.OnClickListener() {
+        recreationalCard = rootView.findViewById(R.id.recreational_cardview);
+        opportunitiesCard = rootView.findViewById(R.id.opportunities_cardview);
+        basketballView = rootView.findViewById(R.id.basketBallImage);
+        opportunitiesView = rootView.findViewById(R.id.opportunitiesImage);
+
+        recreationalCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fragmentListener.swapWithRecreationalFragment();
             }
         });
 
-        outOfSchoolPrograms.setOnClickListener(new View.OnClickListener() {
+        opportunitiesCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fragmentListener.swapWithOutOfSchoolFragment();
