@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.murodjonrahimov.hackathon.R;
-import com.example.murodjonrahimov.hackathon.model.BasketBallCourt;
 import com.example.murodjonrahimov.hackathon.model.TennisCourt;
 import com.example.murodjonrahimov.hackathon.views.CourtsViewHolder;
 

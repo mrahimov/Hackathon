@@ -7,6 +7,7 @@ package com.example.murodjonrahimov.hackathon.model;
 public class TennisCourt {
     private String Name;
     private String Location;
+    private int image;
     private String Phone;
     private String Courts;
     private String Indoor_Outdoor;
@@ -67,5 +68,13 @@ public class TennisCourt {
 
     public void setTennis_Type(String tennis_Type) {
         Tennis_Type = tennis_Type;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }
