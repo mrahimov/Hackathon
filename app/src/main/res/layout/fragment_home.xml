@@ -12,7 +12,7 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:layout_marginTop="120dp"
-      android:background="@color/colorPrimary"
+      android:background="@drawable/mybutton"
       android:text="Recreational Activities"/>
 
     <Button
@@ -21,7 +21,7 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:layout_marginTop="20dp"
-      android:background="@color/colorAccent"
+      android:background="@drawable/mybutton"
       android:text="OUT-of-schools programs"/>
 
 

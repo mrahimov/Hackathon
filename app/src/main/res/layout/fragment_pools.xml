@@ -16,6 +16,7 @@
           android:id="@+id/button_indoor"
           android:layout_width="0dp"
           android:layout_weight="1"
+          android:background="@drawable/mybutton"
           android:layout_height="match_parent"
           android:gravity="center"
           android:shape="rectangle"
@@ -25,6 +26,7 @@
           android:id="@+id/button_outdoor"
           android:layout_width="0dp"
           android:layout_weight="1"
+          android:background="@drawable/mybutton"
           android:layout_height="match_parent"
           android:layout_alignParentRight="true"
           android:text="outdoor pools"/>
