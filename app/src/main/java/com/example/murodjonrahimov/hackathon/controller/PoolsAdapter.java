@@ -69,9 +69,9 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
   }
 
   public void onBind(final ModelPools modelPools) {
-    poolsName.setText("name: " + modelPools.getName());
-    poolsAddress.setText(modelPools.getLocation());
-    poolsPhone.setText("phone: " + modelPools.getPhone());
+    poolsName.setText("Name: " + modelPools.getName());
+    poolsAddress.setText("Location: " + modelPools.getLocation());
+    poolsPhone.setText("Contact Number: " + modelPools.getPhone());
     poolsImage.setImageResource(modelPools.getImage());
     poolsImage.setImageResource(modelPools.getImage());
 

@@ -7,8 +7,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.murodjonrahimov.hackathon.R;
+
+
 import com.example.murodjonrahimov.hackathon.backend.MyIntentService;
 import com.example.murodjonrahimov.hackathon.model.MyFavourite;
 import com.example.murodjonrahimov.hackathon.model.TennisCourt;
@@ -34,8 +35,8 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(final TennisCourt courts) {
-        agencyView.setText(courts.getName());
-        locationView.setText(courts.getLocation());
+        agencyView.setText("Name: " + courts.getName());
+        locationView.setText("Location: " + courts.getLocation());
         courtsView.setText(courts.getCourts());
         imageViewtennis.setImageResource(courts.getImage());
 
