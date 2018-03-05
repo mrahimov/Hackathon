@@ -35,14 +35,14 @@
                   android:id="@+id/textview_pools_name"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:textSize="16sp"
+                  android:textSize="14sp"
                   android:hint="@string/pools_name"/>
 
                 <TextView
                   android:id="@+id/textview_pools_phone"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:textSize="16sp"
+                  android:textSize="14sp"
                   android:layout_below="@+id/textview_pools_name"
                   android:hint="@string/phone_number"/>
 
@@ -50,9 +50,8 @@
                   android:id="@+id/textview_pools_address"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:textSize="16sp"
-                  android:layout_below="@+id/textview_pools_phone"
-                  android:hint="@string/pools_address"/>
+                  android:textSize="14sp"
+                  android:layout_below="@+id/textview_pools_phone"/>
 
                 <ImageButton
                   android:id="@+id/image_button"
