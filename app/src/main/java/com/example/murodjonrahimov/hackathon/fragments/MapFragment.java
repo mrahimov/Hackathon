@@ -95,8 +95,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                         double lat = location.getLatitude();
                         double lng = location.getLongitude();
                         LatLng currentLocation = new LatLng(lat, lng);
-                        CameraPosition cameraPosition = new CameraPosition.Builder().target(currentLocation).zoom(12).build();
-                        myGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+//                        CameraPosition cameraPosition = new CameraPosition.Builder().target(currentLocation).zoom(12).build();
+//                        myGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                         myGoogleMap.addMarker(new MarkerOptions().position(currentLocation).title("Current Location"));
                         myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
                         UiSettings uiSettings = myGoogleMap.getUiSettings();
