@@ -22,11 +22,12 @@ public class HomeFragment extends Fragment {
 
 
 //    private Button recreationalActivitiesButton;
-    private Button outOfSchoolPrograms;
+    private Button outOfSchoolProgramsButton, recreationButton;
     private FragmentListener fragmentListener;
 
     private CardView recreationalCard, opportunitiesCard;
     private ImageView basketballView, opportunitiesView;
+
 
 
     public HomeFragment() {
@@ -50,22 +51,24 @@ public class HomeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-//        recreationalActivitiesButton = rootView.findViewById(R.id.recreational_activities_button);
-//        outOfSchoolPrograms = rootView.findViewById(R.id.programs_button);
 
-        recreationalCard = rootView.findViewById(R.id.recreational_cardview);
-        opportunitiesCard = rootView.findViewById(R.id.opportunities_cardview);
-        basketballView = rootView.findViewById(R.id.basketBallImage);
-        opportunitiesView = rootView.findViewById(R.id.opportunitiesImage);
 
-        recreationalCard.setOnClickListener(new View.OnClickListener() {
+        recreationButton = rootView.findViewById(R.id.recreational_button);
+        outOfSchoolProgramsButton = rootView.findViewById(R.id.jobs_button);
+
+//        recreationalCard = rootView.findViewById(R.id.recreational_button);
+//        opportunitiesCard = rootView.findViewById(R.id.jobs_button);
+       // basketballView = rootView.findViewById(R.id.basketBallImage);
+        //opportunitiesView = rootView.findViewById(R.id.opportunitiesImage);
+
+        recreationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fragmentListener.swapWithRecreationalFragment();
             }
         });
 
-        opportunitiesCard.setOnClickListener(new View.OnClickListener() {
+        outOfSchoolProgramsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fragmentListener.swapWithOutOfSchoolFragment();
