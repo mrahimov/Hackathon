@@ -7,7 +7,7 @@ import android.content.Context;
 
 import com.example.murodjonrahimov.hackathon.model.MyFavourite;
 
-@Database(entities = {MyFavourite.class},version = 1, exportSchema = false)
+@Database(entities = {MyFavourite.class},version = 2, exportSchema = false)
 
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
@@ -16,6 +16,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "country-database")
+                            .fallbackToDestructiveMigration()
                             .allowMainThreadQueries()
                             .build();
         }

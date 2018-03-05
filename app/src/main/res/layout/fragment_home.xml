@@ -19,73 +19,50 @@
         android:textColor="#5e1363"
         android:text="NYCYouth"
         android:textSize="80sp" />
-
-    <!--<TextView-->
-        <!--android:id="@+id/textView2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_above="@+id/jobs_button"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginBottom="13dp"-->
-        <!--android:text="What activities would you like to view?"-->
-        <!--android:textColor="#FFFFFF"-->
-        <!--android:textSize="25sp" />-->
-
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/mLlayoutBottomButtons"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="43dp"
-        android:gravity="bottom"
+        android:layout_marginTop="180dp"
         android:orientation="vertical">
 
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/jobs_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:shadowColor="#484545"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="Jobs Internships"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:bottomRightRadius="10dp"
+            android:bottomLeftRadius="10dp"
+            android:topLeftRadius="30dp"
+            android:topRightRadius="10dp"
+           />
 
-    <Button
-        android:id="@+id/jobs_button"
-        android:layout_width="155sp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="56dp"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="@dimen/cardview_default_elevation"
-        android:shadowColor="#484545"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
-        android:text="Jobs"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp" />
 
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/textView"-->
-        <!--android:layout_toEndOf="@+id/mLlayoutBottomButtons"-->
-        <!--android:background="@drawable/friendly_kids" />-->
-
-    <Button
-        android:id="@+id/recreational_button"
-        android:layout_width="155sp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/jobs_button"
-        android:layout_below="@+id/jobs_button"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="41dp"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="@dimen/cardview_default_elevation"
-        android:shadowColor="#5e5a5a"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
-        android:text="Outdoors"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp" />
-
+        <Button
+            android:id="@+id/recreational_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="41dp"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:shadowColor="#5e5a5a"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="Out of school programs"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+    </LinearLayout>
 
 </RelativeLayout>
