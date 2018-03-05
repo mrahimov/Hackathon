@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#eeeeee">
 
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -24,12 +25,14 @@
             <TextView
                 android:id="@+id/name_textView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/location_textView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="16sp"/>
 
 
             <ImageButton
@@ -37,7 +40,7 @@
                 android:layout_width="19dp"
                 android:layout_height="19dp"
                 android:background="@android:color/transparent"
-                android:layout_marginLeft="330dp"/>
+                android:layout_marginLeft="360dp"/>
 
         </LinearLayout>
 
