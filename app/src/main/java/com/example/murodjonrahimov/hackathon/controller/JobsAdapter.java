@@ -36,7 +36,6 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
 
         Jobs jobs =jobsList.get(position);
         holder.onBind(jobs);
-
     }
 
     @Override

@@ -49,9 +49,7 @@ public class PoolsFragment extends Fragment {
         } catch (IOException e) {
           e.printStackTrace();
         }
-
         adapter = new PoolsAdapter(poolsList);
-
         poolsRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
       }

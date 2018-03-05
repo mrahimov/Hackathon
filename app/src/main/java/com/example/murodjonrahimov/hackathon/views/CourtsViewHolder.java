@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.murodjonrahimov.hackathon.R;
@@ -19,6 +20,7 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
     private ImageButton imageButton;
     private int imageB;
     public static final String SAVED_MY_FAVOURITE = "myFavourite";
+    private ImageView imageViewtennis;
 
     public CourtsViewHolder(View itemView) {
         super(itemView);
@@ -26,6 +28,8 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
         locationView = itemView.findViewById(R.id.location_textView);
         courtsView = itemView.findViewById(R.id.courts_textView);
         imageButton = itemView.findViewById(R.id.image_button);
+        imageViewtennis = itemView.findViewById(R.id.imageview_tennis);
+
 
     }
 
@@ -33,6 +37,7 @@ public class CourtsViewHolder extends RecyclerView.ViewHolder {
         agencyView.setText(courts.getName());
         locationView.setText(courts.getLocation());
         courtsView.setText(courts.getCourts());
+        imageViewtennis.setImageResource(courts.getImage());
 
         setImage(courts.isFavorite());
 

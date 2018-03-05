@@ -11,10 +11,7 @@ import com.example.murodjonrahimov.hackathon.backend.MyIntentService;
 import com.example.murodjonrahimov.hackathon.model.Jobs;
 import com.example.murodjonrahimov.hackathon.model.MyFavourite;
 
-
 public class JobsViewHolder extends RecyclerView.ViewHolder {
-
-
     private TextView name;
     private TextView location;
     private TextView borough;
@@ -36,7 +33,6 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
         phone = itemView.findViewById(R.id.phone_textView);
         zipcode = itemView.findViewById(R.id.zipcode_textView);
         imageButton = itemView.findViewById(R.id.image_button);
-
     }
 
     public void onBind(final Jobs jobs) {
@@ -49,12 +45,10 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
         zipcode.setText("Zipcode: " + jobs.getLocation_1_zip());
 
         setImage(jobs.isFavorite());
-
         imageButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-
                 boolean newStatus;
 
                 String name = jobs.getAgency().toString();
@@ -66,7 +60,6 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
                 } else {
                     newStatus = true;
                 }
-
                 jobs.setFavorite(newStatus);
                 setImage(newStatus);
 
@@ -88,8 +81,6 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
             imageB = R.drawable.unfavourite;
         }
         imageButton.setImageResource(imageB);
-
     }
-
 }
 
