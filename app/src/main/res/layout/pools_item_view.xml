@@ -60,7 +60,7 @@
                   android:layout_height="19dp"
                   android:layout_alignParentEnd="true"
                   android:layout_below="@+id/textview_pools_address"
-                    android:layout_marginLeft="350dp"
+                    android:layout_marginLeft="320dp"
                     android:background="@android:color/transparent"/>
 
             </RelativeLayout>
