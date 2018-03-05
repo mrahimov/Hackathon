@@ -42,7 +42,6 @@
               android:layout_width="19dp"
               android:layout_height="19dp"
               android:layout_below="@+id/courts_textView"
-              android:layout_marginLeft="330dp"
               android:background="@android:color/transparent"/>
 
         </RelativeLayout>
