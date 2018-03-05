@@ -51,6 +51,7 @@ public class VolunteerViewHolder extends RecyclerView.ViewHolder {
                 String name = volunteer.getOrg_title().toString();
                 String location = volunteer.getPostalcode().toString();
                 boolean isFavourite = volunteer.isFavorite();
+                String zipcode = volunteer.getPostalcode();
 
                 if (volunteer.isFavorite()) {
                     newStatus = false;
@@ -61,7 +62,7 @@ public class VolunteerViewHolder extends RecyclerView.ViewHolder {
                 volunteer.setFavorite(newStatus);
                 setImage(newStatus);
 
-                MyFavourite myFavourite = new MyFavourite(name, location, isFavourite);
+                MyFavourite myFavourite = new MyFavourite(name, location, isFavourite, zipcode);
 
                 Intent intent = new Intent(title.getContext(), MyIntentService.class);
                 intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);

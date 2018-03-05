@@ -86,6 +86,7 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
         String name = modelPools.getName().toString();
         String location = modelPools.getLocation().toString();
         boolean isFavourite = modelPools.isFavorite();
+        String zipcode = "10000";
 
         if(modelPools.isFavorite()) {
           newStatus = false;
@@ -96,7 +97,7 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
         modelPools.setFavorite(newStatus);
         setImage(newStatus);
 
-        MyFavourite myFavourite = new MyFavourite(name, location, isFavourite);
+        MyFavourite myFavourite = new MyFavourite(name, location, isFavourite, zipcode);
 
         Intent intent = new Intent(poolsAddress.getContext(), MyIntentService.class);
         intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);

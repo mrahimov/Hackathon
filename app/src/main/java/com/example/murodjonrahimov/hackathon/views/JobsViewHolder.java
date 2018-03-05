@@ -54,6 +54,7 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
                 String name = jobs.getAgency().toString();
                 String location = jobs.getAddress().toString();
                 boolean isFavourite = jobs.isFavorite();
+                String zipcode = jobs.getLocation_1_zip().toString();
 
                 if (jobs.isFavorite()) {
                     newStatus = false;
@@ -63,11 +64,11 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
                 jobs.setFavorite(newStatus);
                 setImage(newStatus);
 
-                MyFavourite myFavourite = new MyFavourite(name, location, isFavourite);
+                MyFavourite myFavourite = new MyFavourite(name, location, isFavourite, zipcode);
 
-                Intent intent = new Intent(zipcode.getContext(), MyIntentService.class);
+                Intent intent = new Intent(borough.getContext(), MyIntentService.class);
                 intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);
-                zipcode.getContext().startService(intent);
+                borough.getContext().startService(intent);
 
             }
         });
