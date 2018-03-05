@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Frag
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    String customFont = "Carrington.ttf";
+
     toolbar = getSupportActionBar();
     toolbar.setTitle("Home");
     loadFragment(new HomeFragment());
