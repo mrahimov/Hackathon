@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.backend.AppDatabase;
 import com.example.murodjonrahimov.hackathon.controller.ParksAdapter;
+import com.example.murodjonrahimov.hackathon.model.MyFavourite;
 import com.example.murodjonrahimov.hackathon.model.Park;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,11 +22,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ParksFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private AppDatabase db;
 
     public ParksFragment() {
     }
@@ -45,8 +46,6 @@ public class ParksFragment extends Fragment {
         asyncTaskRunner.execute();
 
         recyclerView = getActivity().findViewById(R.id.parks_recyclerview);
-        db = AppDatabase.getAppDatabase(getActivity());
-
     }
 
     public String loadJSONFromAsset() {
@@ -76,6 +75,21 @@ public class ParksFragment extends Fragment {
             Gson gson = new Gson();
             ArrayList<Park> listOfParks = gson.fromJson(json, new TypeToken<ArrayList<Park>>() {
             }.getType());
+
+            AppDatabase db = AppDatabase.getAppDatabase(getActivity());
+            List<MyFavourite> favoriteFellows = db.myFavDao().getFavorite();
+
+            for(int i = 0; i < favoriteFellows.size();i++) {
+                for(int k = 0; k < listOfParks.size(); k++) {
+
+                    String myFavouriteName = favoriteFellows.get(i).getName();
+                    String parkName = listOfParks.get(k).getName();
+                    if(myFavouriteName.equals(parkName)) {
+                        listOfParks.get(k).setFavorite(true);
+                    }
+                }
+            }
+
             return listOfParks;
         }
 

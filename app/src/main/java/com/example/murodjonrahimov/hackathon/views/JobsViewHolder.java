@@ -1,12 +1,15 @@
 package com.example.murodjonrahimov.hackathon.views;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.backend.MyIntentService;
 import com.example.murodjonrahimov.hackathon.model.Jobs;
+import com.example.murodjonrahimov.hackathon.model.MyFavourite;
 
 
 public class JobsViewHolder extends RecyclerView.ViewHolder {
@@ -20,6 +23,8 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
     private TextView zipcode;
     private ImageButton imageButton;
     private int imageB;
+    public static final String SAVED_MY_FAVOURITE = "myFavourite";
+
 
     public JobsViewHolder(View itemView) {
         super(itemView);
@@ -52,6 +57,10 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
 
                 boolean newStatus;
 
+                String name = jobs.getAgency().toString();
+                String location = jobs.getAddress().toString();
+                boolean isFavourite = jobs.isFavorite();
+
                 if (jobs.isFavorite()) {
                     newStatus = false;
                 } else {
@@ -60,6 +69,13 @@ public class JobsViewHolder extends RecyclerView.ViewHolder {
 
                 jobs.setFavorite(newStatus);
                 setImage(newStatus);
+
+                MyFavourite myFavourite = new MyFavourite(name, location, isFavourite);
+
+                Intent intent = new Intent(zipcode.getContext(), MyIntentService.class);
+                intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);
+                zipcode.getContext().startService(intent);
+
             }
         });
     }

@@ -8,17 +8,21 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.backend.AppDatabase;
+import com.example.murodjonrahimov.hackathon.controller.FavouriteAdapter;
 import com.example.murodjonrahimov.hackathon.model.MyFavourite;
 
 import java.util.List;
 
 public class FavoriteFragment extends Fragment {
+
+    private RecyclerView recyclerView;
 
     public FavoriteFragment() {
     }
@@ -27,8 +31,9 @@ public class FavoriteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View rootView = inflater.inflate(R.layout.fragment_favorite, container, false);
+        recyclerView = rootView.findViewById(R.id.recyclerview);
         return rootView;
 
     }
@@ -54,11 +59,11 @@ public class FavoriteFragment extends Fragment {
             protected void onPostExecute(List<MyFavourite> favoriteFellows) {
                 super.onPostExecute(favoriteFellows);
 
-//                FellowsAdapter fa = new FellowsAdapter(favoriteFellows);
-//
-//                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-//                rv.setAdapter(fa);
-//                rv.setLayoutManager(linearLayoutManager);
+                FavouriteAdapter fa = new FavouriteAdapter(favoriteFellows);
+
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+                recyclerView.setAdapter(fa);
+                recyclerView.setLayoutManager(linearLayoutManager);
 
 
             }

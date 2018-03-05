@@ -1,5 +1,6 @@
 package com.example.murodjonrahimov.hackathon.controller;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.backend.MyIntentService;
 import com.example.murodjonrahimov.hackathon.model.ModelPools;
+import com.example.murodjonrahimov.hackathon.model.MyFavourite;
+
 import java.util.List;
 
 /**
@@ -50,6 +54,8 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
   private ImageView poolsImage;
   private ImageView imageButton;
   private int imageB;
+  public static final String SAVED_MY_FAVOURITE = "myFavourite";
+
 
   public PoolsViewHolder(View itemView) {
     super(itemView);
@@ -77,6 +83,9 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
       public void onClick(View view) {
 
         boolean newStatus;
+        String name = modelPools.getName().toString();
+        String location = modelPools.getLocation().toString();
+        boolean isFavourite = modelPools.isFavorite();
 
         if(modelPools.isFavorite()) {
           newStatus = false;
@@ -86,6 +95,12 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
 
         modelPools.setFavorite(newStatus);
         setImage(newStatus);
+
+        MyFavourite myFavourite = new MyFavourite(name, location, isFavourite);
+
+        Intent intent = new Intent(poolsAddress.getContext(), MyIntentService.class);
+        intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);
+        poolsAddress.getContext().startService(intent);
       }
     });
   }

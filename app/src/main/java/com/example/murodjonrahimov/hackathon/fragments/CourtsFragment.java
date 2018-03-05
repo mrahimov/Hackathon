@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.backend.AppDatabase;
 import com.example.murodjonrahimov.hackathon.controller.CourtsAdapter;
 import com.example.murodjonrahimov.hackathon.model.BasketBallCourt;
 import com.example.murodjonrahimov.hackathon.model.HandBallCourt;
