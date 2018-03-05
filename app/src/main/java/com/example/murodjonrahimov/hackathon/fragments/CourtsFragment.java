@@ -1,6 +1,5 @@
 package com.example.murodjonrahimov.hackathon.fragments;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,10 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.controller.CourtsAdapter;
-import com.example.murodjonrahimov.hackathon.model.BasketBallCourt;
-import com.example.murodjonrahimov.hackathon.model.HandBallCourt;
 import com.example.murodjonrahimov.hackathon.model.TennisCourt;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,179 +25,202 @@ import java.util.List;
  */
 public class CourtsFragment extends Fragment {
 
-    View rootview;
-    RecyclerView courtRV;
-    CourtsAdapter courtsAdapter;
-    LinearLayoutManager linearLayoutManager;
-    List<BasketBallCourt> basketBallCourts = new ArrayList<>();
-    List<HandBallCourt> handBallCourts = new ArrayList<>();
-    List<TennisCourt> tennisBallCourts;
+  View rootview;
+  RecyclerView courtRV;
+  CourtsAdapter courtsAdapter;
+  LinearLayoutManager linearLayoutManager;
+  List<TennisCourt> tennisBallCourts;
+  Button buttonTennis;
+  Button buttonBasketBall;
+  Button buttonHandBall;
 
-    public CourtsFragment() {
-        // Required empty public constructor
-    }
+  public CourtsFragment() {
+    // Required empty public constructor
+  }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        rootview = inflater.inflate(R.layout.fragment_courts, container, false);
-        courtRV = rootview.findViewById(R.id.courts_rv);
-        tennisBallCourts = new ArrayList<>();
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    // Inflate the layout for this fragment
+    rootview = inflater.inflate(R.layout.fragment_courts, container, false);
+    courtRV = rootview.findViewById(R.id.courts_rv);
+    tennisBallCourts = new ArrayList<>();
 
+    buttonBasketBall = rootview.findViewById(R.id.button_basketball);
+    buttonTennis = rootview.findViewById(R.id.button_tennis);
+    buttonHandBall = rootview.findViewById(R.id.button_handball);
+
+    buttonTennis.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
         try {
-//            getBasketBallJSON();
-//            getHandBallJSON();
-            getTennisCourtJSON();
+          getTennisCourtJSON();
         } catch (IOException e) {
-            e.printStackTrace();
+          e.printStackTrace();
         }
         courtsAdapter = new CourtsAdapter(tennisBallCourts);
-        linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
         courtRV.setAdapter(courtsAdapter);
-        courtRV.setLayoutManager(linearLayoutManager);
-
-        return rootview;
-    }
-
-    public void getBasketBallJSON() throws IOException {
-        InputStream inputStream = getContext().getAssets().open("basketball_courts.json");
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
-        int size;
+        courtsAdapter.notifyDataSetChanged();
+      }
+    });
+    buttonBasketBall.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
         try {
-            size = inputStream.read();
-            while (size != -1) {
-                byteArrayOutputStream.write(size);
-                size = inputStream.read();
-            }
-            inputStream.close();
-
+          getBasketBallJSON();
         } catch (IOException e) {
-            e.printStackTrace();
+          e.printStackTrace();
         }
+        courtsAdapter = new CourtsAdapter(tennisBallCourts);
+        courtRV.setAdapter(courtsAdapter);
+        courtsAdapter.notifyDataSetChanged();
+      }
+    });
+    buttonHandBall.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
         try {
-            JSONArray keyArray = new JSONArray(byteArrayOutputStream.toString());
-            Log.d("key array", keyArray.toString());
-            String name = "";
-            String location = "";
-            String numOfCourts = "";
-
-            for (int i = 0; i < keyArray.length(); i++) {
-                name = keyArray.getJSONObject(i).getString("Name");
-                location = keyArray.getJSONObject(i).getString("Location");
-                numOfCourts = keyArray.getJSONObject(i).getString("Num_of_Courts");
-
-                BasketBallCourt bc = new BasketBallCourt();
-                bc.setName(name);
-                bc.setLocation(location);
-                bc.setNum_of_Courts(numOfCourts);
-
-                basketBallCourts.add(bc);
-                Log.d("basketball name: ", bc.getName());
-                Log.d("basketball location: ", bc.getLocation());
-                Log.d("basketball courts: ", bc.getNum_of_Courts());
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-    public void getHandBallJSON() throws IOException {
-        InputStream inputStream = getContext().getAssets().open("handball_courts.json");
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
-        int size;
-        try {
-            size = inputStream.read();
-            while (size != -1) {
-                byteArrayOutputStream.write(size);
-                size = inputStream.read();
-            }
-            inputStream.close();
-
+          getHandBallJSON();
         } catch (IOException e) {
-            e.printStackTrace();
+          e.printStackTrace();
         }
-        try {
-            JSONArray keyArray = new JSONArray(byteArrayOutputStream.toString());
-            Log.d("key array", keyArray.toString());
-            String name = "";
-            String location = "";
-            String numOfCourts = "";
-
-            for (int i = 0; i < keyArray.length(); i++) {
-                name = keyArray.getJSONObject(i).getString("Name");
-                location = keyArray.getJSONObject(i).getString("Location");
-                numOfCourts = keyArray.getJSONObject(i).getString("Num_of_Courts");
-
-                HandBallCourt hc = new HandBallCourt();
-                hc.setName(name);
-                hc.setLocation(location);
-                hc.setNum_of_Courts(numOfCourts);
-
-                handBallCourts.add(hc);
-                Log.d("handball name: ", hc.getName());
-                Log.d("handball location: ", hc.getLocation());
-                Log.d("handball courts: ", hc.getNum_of_Courts());
-
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        courtsAdapter = new CourtsAdapter(tennisBallCourts);
+        courtRV.setAdapter(courtsAdapter);
+        courtsAdapter.notifyDataSetChanged();
+      }
+    });
+    try {
+      getTennisCourtJSON();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+    courtsAdapter = new CourtsAdapter(tennisBallCourts);
+    linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+    courtRV.setAdapter(courtsAdapter);
+    courtRV.setLayoutManager(linearLayoutManager);
 
-    public void getTennisCourtJSON() throws IOException {
-        InputStream inputStream = getContext().getAssets().open("tennis_courts.json");
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    return rootview;
+  }
 
-        int size;
-        try {
-            size = inputStream.read();
-            while (size != -1) {
-                byteArrayOutputStream.write(size);
-                size = inputStream.read();
-            }
-            inputStream.close();
+  public void getBasketBallJSON() throws IOException {
+    tennisBallCourts.clear();
+    InputStream inputStream = getContext().getAssets()
+      .open("basketball_courts.json");
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            JSONArray keyArray = new JSONArray(byteArrayOutputStream.toString());
-            Log.d("key array", keyArray.toString());
-            String name = "";
-            String location = "";
-            String phone = "";
-            String numOfCourts = "";
-            String levelType = "";
-            String type = "";
-
-            for (int i = 0; i < keyArray.length(); i++) {
-                name = keyArray.getJSONObject(i).getString("Name");
-                location = keyArray.getJSONObject(i).getString("Location");
-                numOfCourts = keyArray.getJSONObject(i).getString("Courts");
-                type = keyArray.getJSONObject(i).getString("Indoor_Outdoor");
-
-                TennisCourt tc = new TennisCourt();
-                tc.setName(name);
-                tc.setPhone(phone);
-                tc.setLocation(location);
-                tc.setCourts(numOfCourts);
-                tc.setTennis_Type(levelType);
-                tc.setIndoor_Outdoor(type);
-
-                tennisBallCourts.add(tc);
-                Log.d("tennis name: ", tc.getName());
-                Log.d("tennis location: ", tc.getLocation());
-                Log.d("tennis courts: ", tc.getCourts());
-                Log.d("tennis", tc.getIndoor_Outdoor());
-
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+    int size;
+    try {
+      size = inputStream.read();
+      while (size != -1) {
+        byteArrayOutputStream.write(size);
+        size = inputStream.read();
+      }
+      inputStream.close();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+    try {
+      JSONArray keyArray = new JSONArray(byteArrayOutputStream.toString());
+      Log.d("key array", keyArray.toString());
+      String name = "";
+      String location = "";
 
+      for (int i = 0; i < keyArray.length(); i++) {
+        name = keyArray.getJSONObject(i)
+          .getString("Name");
+        location = keyArray.getJSONObject(i)
+          .getString("Location");
+
+        TennisCourt bc = new TennisCourt();
+        bc.setName(name);
+        bc.setLocation(location);
+        bc.setImage(R.drawable.basketball);
+
+        tennisBallCourts.add(bc);
+      }
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void getHandBallJSON() throws IOException {
+    tennisBallCourts.clear();
+    InputStream inputStream = getContext().getAssets()
+      .open("handball_courts.json");
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+    int size;
+    try {
+      size = inputStream.read();
+      while (size != -1) {
+        byteArrayOutputStream.write(size);
+        size = inputStream.read();
+      }
+      inputStream.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    try {
+      JSONArray keyArray = new JSONArray(byteArrayOutputStream.toString());
+      Log.d("key array", keyArray.toString());
+      String name;
+      String location;
+
+      for (int i = 0; i < keyArray.length(); i++) {
+        name = keyArray.getJSONObject(i)
+          .getString("Name");
+        location = keyArray.getJSONObject(i)
+          .getString("Location");
+
+        TennisCourt hc = new TennisCourt();
+        hc.setName(name);
+        hc.setLocation(location);
+        hc.setImage(R.drawable.handball);
+
+        tennisBallCourts.add(hc);
+      }
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void getTennisCourtJSON() throws IOException {
+    tennisBallCourts.clear();
+    InputStream inputStream = getContext().getAssets()
+      .open("tennis_courts.json");
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+    int size;
+    try {
+      size = inputStream.read();
+      while (size != -1) {
+        byteArrayOutputStream.write(size);
+        size = inputStream.read();
+      }
+      inputStream.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    try {
+      JSONArray keyArray = new JSONArray(byteArrayOutputStream.toString());
+      Log.d("key array", keyArray.toString());
+      String name;
+      String location;
+
+      for (int i = 0; i < keyArray.length(); i++) {
+        name = keyArray.getJSONObject(i)
+          .getString("Name");
+        location = keyArray.getJSONObject(i)
+          .getString("Location");
+
+        TennisCourt tc = new TennisCourt();
+        tc.setName(name);
+        tc.setLocation(location);
+        tc.setImage(R.drawable.tennis);
+
+        tennisBallCourts.add(tc);
+      }
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+  }
 }
