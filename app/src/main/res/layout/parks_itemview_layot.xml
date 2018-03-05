@@ -61,7 +61,6 @@
               android:layout_height="19dp"
               android:layout_alignParentEnd="true"
               android:layout_below="@id/park_zipcode"
-                android:layout_marginLeft="350dp"
                 android:background="@android:color/transparent"/>
 
         </RelativeLayout>

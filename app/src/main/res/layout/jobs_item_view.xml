@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:orientation="vertical"
-    android:background="#eeeeee">
+  android:background="#eeeeee"
+  android:orientation="vertical">
 
     <android.support.v7.widget.CardView
       xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -23,50 +23,49 @@
               android:id="@+id/agency_textView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+              android:textSize="16sp"/>
 
             <TextView
               android:id="@+id/name_textView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/agency_textView"
-                android:textSize="16sp"/>
+              android:textSize="16sp"/>
 
             <TextView
               android:id="@+id/location_textView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/name_textView"
-                android:textSize="16sp"/>
+              android:textSize="16sp"/>
 
             <TextView
               android:id="@+id/borough_textView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/location_textView"
-                android:textSize="16sp"/>
+              android:textSize="16sp"/>
 
             <TextView
               android:id="@+id/zipcode_textView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/borough_textView"
-                android:textSize="16sp"/>
+              android:textSize="16sp"/>
 
             <TextView
               android:id="@+id/phone_textView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/zipcode_textView"
-                android:textSize="16sp"/>
+              android:textSize="16sp"/>
 
             <ImageButton
               android:id="@+id/image_button"
               android:layout_width="19dp"
               android:layout_height="19dp"
               android:layout_below="@+id/phone_textView"
-                android:layout_marginLeft="350dp"
-                android:background="@android:color/transparent"/>
+              android:background="@android:color/transparent"/>
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
