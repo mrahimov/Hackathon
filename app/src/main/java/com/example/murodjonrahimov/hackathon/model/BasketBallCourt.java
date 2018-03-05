@@ -1,9 +1,5 @@
 package com.example.murodjonrahimov.hackathon.model;
 
-/**
- * Created by c4q on 3/3/18.
- */
-
 public class BasketBallCourt {
     private String Prop_ID;
     private String Name;

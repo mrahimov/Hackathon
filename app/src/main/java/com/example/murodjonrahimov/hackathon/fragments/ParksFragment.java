@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.backend.AppDatabase;
 import com.example.murodjonrahimov.hackathon.controller.ParksAdapter;
 import com.example.murodjonrahimov.hackathon.model.Park;
 import com.google.gson.Gson;
@@ -22,8 +24,8 @@ import java.util.ArrayList;
 
 public class ParksFragment extends Fragment {
 
-    private static final String PARK_RESPONSE = "response";
     private RecyclerView recyclerView;
+    private AppDatabase db;
 
     public ParksFragment() {
     }
@@ -43,6 +45,7 @@ public class ParksFragment extends Fragment {
         asyncTaskRunner.execute();
 
         recyclerView = getActivity().findViewById(R.id.parks_recyclerview);
+        db = AppDatabase.getAppDatabase(getActivity());
 
     }
 
@@ -78,9 +81,6 @@ public class ParksFragment extends Fragment {
 
         @Override
         protected void onPostExecute(ArrayList<Park> listOfParks) {
-
-//            Park park = listOfParks.get(2);
-//            Log.d(PARK_RESPONSE, park.getName());
 
             ParksAdapter parksAdapter = new ParksAdapter(listOfParks);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false);
