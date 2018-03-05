@@ -2,7 +2,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
+  android:layout_height="match_parent" xmlns:card_view="http://schemas.android.com/apk/res-auto"
   android:orientation="vertical"
   tools:context="com.example.murodjonrahimov.hackathon.fragments.PoolsFragment">
 
@@ -13,20 +13,23 @@
       android:orientation="horizontal">
 
         <Button
-          android:id="@+id/button_outdoor"
-          android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:layout_weight="1"
-
-          android:text="outdoor pools"/>
-
-        <Button
-
           android:id="@+id/button_indoor"
           android:layout_width="0dp"
-          android:layout_height="match_parent"
           android:layout_weight="1"
+          android:background="@drawable/mybutton"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:shape="rectangle"
           android:text="indoor pools"/>
+
+        <Button
+          android:id="@+id/button_outdoor"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:background="@drawable/mybutton"
+          android:layout_height="match_parent"
+          android:layout_alignParentRight="true"
+          android:text="outdoor pools"/>
 
     </LinearLayout>
 
@@ -34,7 +37,7 @@
       android:id="@+id/recyclerview_pool"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
-      
+
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

@@ -3,7 +3,6 @@ package com.example.murodjonrahimov.hackathon;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import com.example.murodjonrahimov.hackathon.fragments.CourtsFragment;
 import com.example.murodjonrahimov.hackathon.fragments.ParksFragment;
 import com.example.murodjonrahimov.hackathon.fragments.PoolsFragment;
@@ -44,6 +43,5 @@ public class RecreationalActivitiesTabsPagerAdapter extends FragmentPagerAdapter
     public CharSequence getPageTitle(int position) {
         return titles[position];
     }
-
 
 }

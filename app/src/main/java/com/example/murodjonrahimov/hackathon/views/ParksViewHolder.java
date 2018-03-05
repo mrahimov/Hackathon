@@ -1,11 +1,10 @@
-package com.example.murodjonrahimov.hackathon.view;
+package com.example.murodjonrahimov.hackathon.views;
 
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.model.Park;
 

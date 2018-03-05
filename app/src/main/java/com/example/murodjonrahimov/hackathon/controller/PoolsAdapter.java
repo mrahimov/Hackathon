@@ -1,4 +1,4 @@
-package com.example.murodjonrahimov.hackathon.container;
+package com.example.murodjonrahimov.hackathon.controller;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import java.util.List;
  * Created by murodjon.rahimov on 3/3/18.
  */
 
-public class PoolsAdapter extends RecyclerView.Adapter<PoolsViewHolder> {
+public class    PoolsAdapter extends RecyclerView.Adapter<PoolsViewHolder> {
 
   private List<ModelPools> poolsList;
 
@@ -64,9 +64,10 @@ class PoolsViewHolder extends RecyclerView.ViewHolder {
 
   public void onBind(final ModelPools modelPools) {
     poolsName.setText("name: " + modelPools.getName());
-    poolsAddress.setText("address: " + modelPools.getLocation());
+    poolsAddress.setText(modelPools.getLocation());
     poolsPhone.setText("phone: " + modelPools.getPhone());
-    poolsImage.setImageResource(R.drawable.pool);
+    poolsImage.setImageResource(modelPools.getImage());
+    poolsImage.setImageResource(modelPools.getImage());
 
     setImage(modelPools.isFavorite());
 

@@ -64,6 +64,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        if (getContext() != null) {
+            MapsInitializer.initialize(getContext());
+            this.myGoogleMap = googleMap;
+            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(40.730610, -73.935242)));
+        }
         MapsInitializer.initialize(getContext());
         myGoogleMap = googleMap;
 
@@ -89,6 +96,5 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 }
             });
         }
-
     }
 }

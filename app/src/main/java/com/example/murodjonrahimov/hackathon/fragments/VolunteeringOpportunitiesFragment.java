@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.controller.JobsAdapter;
@@ -17,6 +18,7 @@ import com.example.murodjonrahimov.hackathon.model.Jobs;
 import com.example.murodjonrahimov.hackathon.model.Volunteer;
 import com.example.murodjonrahimov.hackathon.network.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -25,27 +27,22 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class VolunteeringOpportunitiesFragment extends Fragment {
 
     View rootView;
     RecyclerView recyclerView;
     List<Volunteer> volunteerList;
 
+
     public VolunteeringOpportunitiesFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         rootView = inflater.inflate(R.layout.fragment_volunteering_opportunities, container, false);
-
 
         recyclerView = rootView.findViewById(R.id.volunteer_rv);
 
@@ -60,6 +57,7 @@ public class VolunteeringOpportunitiesFragment extends Fragment {
         Call<List<Volunteer>> call = service.getVolunteerJobs();
 
         call.enqueue(new Callback<List<Volunteer>>() {
+
             @Override
             public void onResponse(Call<List<Volunteer>> call, Response<List<Volunteer>> response) {
                 Log.d("SUCESSSSSSSSSSS", response.body().get(0).toString());
@@ -70,19 +68,6 @@ public class VolunteeringOpportunitiesFragment extends Fragment {
 
                 recyclerView.setAdapter(volunteerAdapter);
                 recyclerView.setLayoutManager(linearLayoutManager);
-
-
-
-
-
-
-//                getJobsList = response.body();
-//
-//                JobsAdapter jobsAdapter =  new JobsAdapter(getJobsList);
-//                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-//
-//                recyclerView.setAdapter(jobsAdapter);
-//                recyclerView.setLayoutManager(linearLayoutManager);
             }
 
             @Override
@@ -91,7 +76,6 @@ public class VolunteeringOpportunitiesFragment extends Fragment {
 
             }
         });
-
 
         return rootView;
     }
