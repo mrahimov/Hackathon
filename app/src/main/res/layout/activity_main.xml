@@ -17,7 +17,7 @@
         app:itemBackground="@color/colorAccent"
         android:foreground="?attr/selectableItemBackground"
         app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white"
+        app:itemTextColor="#ff8f00"
         app:menu="@menu/navigation" />
 
     <FrameLayout

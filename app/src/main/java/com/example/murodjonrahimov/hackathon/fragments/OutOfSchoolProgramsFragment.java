@@ -14,9 +14,6 @@ import android.widget.EditText;
 import com.example.murodjonrahimov.hackathon.OutOfSchoolTabsPagerAdapter;
 import com.example.murodjonrahimov.hackathon.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class OutOfSchoolProgramsFragment extends Fragment {
 
     private ViewPager pager;
@@ -30,7 +27,7 @@ public class OutOfSchoolProgramsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View rootView = inflater.inflate(R.layout.fragment_out_of_school_programs, container, false);
 
         pager = rootView.findViewById(R.id.pager);

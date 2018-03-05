@@ -1,10 +1,13 @@
 package com.example.murodjonrahimov.hackathon.views;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.murodjonrahimov.hackathon.R;
+import com.example.murodjonrahimov.hackathon.backend.MyIntentService;
+import com.example.murodjonrahimov.hackathon.model.MyFavourite;
 import com.example.murodjonrahimov.hackathon.model.Volunteer;
 
 
@@ -16,6 +19,8 @@ public class VolunteerViewHolder extends RecyclerView.ViewHolder {
     private TextView postalcode;
     private ImageButton imageButton;
     private int imageB;
+    public static final String SAVED_MY_FAVOURITE = "myFavourite";
+
 
     public VolunteerViewHolder(View itemView) {
         super(itemView);
@@ -43,6 +48,9 @@ public class VolunteerViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View view) {
 
                 boolean newStatus;
+                String name = volunteer.getOrg_title().toString();
+                String location = volunteer.getPostalcode().toString();
+                boolean isFavourite = volunteer.isFavorite();
 
                 if (volunteer.isFavorite()) {
                     newStatus = false;
@@ -52,6 +60,12 @@ public class VolunteerViewHolder extends RecyclerView.ViewHolder {
 
                 volunteer.setFavorite(newStatus);
                 setImage(newStatus);
+
+                MyFavourite myFavourite = new MyFavourite(name, location, isFavourite);
+
+                Intent intent = new Intent(title.getContext(), MyIntentService.class);
+                intent.putExtra(SAVED_MY_FAVOURITE, myFavourite);
+                title.getContext().startService(intent);
             }
         });
     }

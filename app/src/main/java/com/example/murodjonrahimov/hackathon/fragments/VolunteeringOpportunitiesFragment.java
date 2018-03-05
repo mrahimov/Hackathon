@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.SearchView;
 
 import com.example.murodjonrahimov.hackathon.R;
 import com.example.murodjonrahimov.hackathon.controller.JobsAdapter;
@@ -32,10 +33,10 @@ public class VolunteeringOpportunitiesFragment extends Fragment {
     View rootView;
     RecyclerView recyclerView;
     List<Volunteer> volunteerList;
+    private VolunteerAdapter volunteerAdapter;
 
 
     public VolunteeringOpportunitiesFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -63,7 +64,7 @@ public class VolunteeringOpportunitiesFragment extends Fragment {
                 Log.d("SUCESSSSSSSSSSS", response.body().get(0).toString());
                 volunteerList = response.body();
 
-                VolunteerAdapter volunteerAdapter = new VolunteerAdapter(volunteerList);
+                volunteerAdapter = new VolunteerAdapter(volunteerList);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
                 recyclerView.setAdapter(volunteerAdapter);
@@ -79,5 +80,4 @@ public class VolunteeringOpportunitiesFragment extends Fragment {
 
         return rootView;
     }
-
 }
